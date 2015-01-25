@@ -28,10 +28,6 @@ class LettersController < ApplicationController
 
     respond_to do |format|
       if @letter.save
-
-        byebug
-        Notification.new_letter(@letter).deliver
-
         format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
         format.json { render :show, status: :created, location: @letter }
       else

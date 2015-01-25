@@ -11,19 +11,16 @@
     </div>
   <% end %>
 
-  <p> 
-    Share your story of what God's love has done for you
-  </p>
-
   <div class="form-group">
     <%= f.label :text, :class => ['sr-only'] %>
-    <%= f.text_area :text, :class => 'form-control', :rows => 25 %>
+    <div id="letter_text" name="letter[text]" class="editable" style="min-height:150px" data-placeholder="Share your story of what God's love has done for you"></div>
+    <script>var editor = new MediumEditor('.editable');</script>
   </div>
 
-  <div class="form-group">
-    <%= f.label :from, :class => 'control-label' %><br>
-    <%= f.text_field :from, :class => 'form-control' %>
-  </div>
+  <!-- <div class="form&#45;group"> -->
+  <!--   <%= f.label :from, :class => 'control&#45;label' %><br> -->
+  <!--   <%= f.text_field :from, :class => 'form&#45;control' %> -->
+  <!-- </div> -->
 
   <div class="actions">
     <%= f.submit :class => 'btn btn-primary' %>
