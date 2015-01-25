@@ -51,3 +51,5 @@ end
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'bootstrap-sass', '~> 3.3.1'
+gem 'griddler'
+gem 'griddler-mandrill'
