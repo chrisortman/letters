@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @user = User.find_by(id: session[:user_id])
-    if @user.nil?
-      redirect_to login_url
-      return
-    end
-
+    @subscriber_count = User.count
+    @story_count = Story.count
+    @letter_count = Letter.count
   end
 end

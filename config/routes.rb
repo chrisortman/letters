@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stories
+
   resources :letters
 
   get '/logout', to: 'sessions#destroy', as: :logout
