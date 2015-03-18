@@ -5,7 +5,7 @@ class EmailProcessor
   end
 
   def process
-    Story.create(from: @email.from[:email], 
+    Story.create(from: @email.from,
                  title: @email.subject,
                  text: @email.body)
   end

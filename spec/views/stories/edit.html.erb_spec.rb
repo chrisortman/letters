@@ -17,9 +17,7 @@ RSpec.describe "stories/edit", :type => :view do
 
       assert_select "input#story_from[name=?]", "story[from]"
 
-      assert_select "input#story_text[name=?]", "story[text]"
-
-      assert_select "input#story_user_id[name=?]", "story[user_id]"
+      assert_select "textarea#story_text[name=?]", "story[text]"
 
       assert_select "input#story_title[name=?]", "story[title]"
     end
