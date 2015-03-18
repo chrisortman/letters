@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :subscriptions
 
-  resources :stories
+  # resources :stories
 
   resources :letters
 
