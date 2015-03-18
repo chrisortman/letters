@@ -1,5 +1,10 @@
 FactoryGirl.define do  
   
+  factory :subscription do
+    sequence(:email)  { |n| "user#{n}@example.com" }
+  end
+  
+  
   factory :story do
     from "MyString"
     text "MyString"

@@ -1,0 +1,14 @@
+<p class="lead">
+Subscribe today to get stories from other christians about how they have
+witnessed God's work in our daily lives
+</p>
+
+<%= form_for @subscription, html: {class: 'form-inline'} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control', placeholder: 'you@example.com' %>
+  </div>
+
+  <%= f.submit 'Subscribe', class: 'btn btn-primary' %>
+<% end %>
