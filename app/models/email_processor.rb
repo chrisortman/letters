@@ -5,6 +5,34 @@ class EmailProcessor
   end
 
   def process
+    if subscribe_message?
+      create_new_subscription
+    elsif unsubscribe_message?
+      remove_subscription
+    else
+      create_new_story
+    end
+  end
+
+  private
+
+  def subscribe_message?
+    @email.body =~ /^subscribe/
+  end
+
+  def create_new_subscription
+    Subscription.create(email:@email.from)
+  end
+
+  def unsubscribe_message?
+    @email.body =~ /^unsubscribe/
+  end
+
+  def remove_subscription
+    Subscription.where(email: @email.from).delete_all
+  end
+
+  def create_new_story
     Story.create(from: @email.from,
                  title: @email.subject,
                  text: @email.body)

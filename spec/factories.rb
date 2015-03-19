@@ -1,7 +1,9 @@
 FactoryGirl.define do  
   
+  sequence(:email,aliases: [:from]) { |n| "user#{n}@example.com" }
+
   factory :subscription do
-    sequence(:email)  { |n| "user#{n}@example.com" }
+    email
   end
   
   
@@ -20,7 +22,7 @@ FactoryGirl.define do
           host: 'example.com',
           name: nil }]
 
-    from 'happydad@example.com'
+    from
 
     subject 'My story'
     body "I'm really excited to share this good news with you"
