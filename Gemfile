@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.1.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -60,4 +61,4 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'griddler'
 gem 'griddler-mandrill'
 gem 'medium-editor-rails', '~> 1.0.0'
-
+gem 'rails_12factor', group: :production
