@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get '/email_processor', :to => proc { [200, {}, ["OK"]] }
   resources :subscriptions
 
   # resources :stories
