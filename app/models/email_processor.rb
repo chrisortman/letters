@@ -21,7 +21,11 @@ class EmailProcessor
   end
 
   def create_new_subscription
-    Subscription.create(email:@email.from)
+    existing = Subscription.where(email: @email.from).first
+    if existing.nil?
+      Subscription.create(email:@email.from)
+      Notification.welcome(@email.from)
+    end
   end
 
   def unsubscribe_message?

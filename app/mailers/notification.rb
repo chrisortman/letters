@@ -11,4 +11,9 @@ class Notification < ApplicationMailer
     @letter = letter
     mail to: "chrisortman@gmail.com", subject: 'New Letter'
   end
+
+  def welcome(user_email)
+    
+    mail to: user_email, subject: "Welcome"
+  end
 end
