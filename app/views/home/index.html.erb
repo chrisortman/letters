@@ -4,6 +4,15 @@
 
 <h2><%= @letter_count %> letters </h2>
 
-<%= link_to 'Subscribe', subscribe_path, class: 'btn btn-lg btn-success' %>
+<% if logged_in? && current_user.subscribed? %>
+  <%= current_user.email %>  is subscribed to our emails
+<% elsif logged_in? %>
+  <%= form_for Subscription.new(email: current_user.email) do |f| %>
+    <%= f.hidden_field :email %>
+    <button type="submit" class="btn btn-lg btn-success">Subscribe <%= current_user.email %></button>
+  <% end %>
+<% else %>
+  <%= link_to 'Subscribe', subscribe_path, class: 'btn btn-lg btn-success' %>
+<% end %>
 
 

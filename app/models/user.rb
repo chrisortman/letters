@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  def subscribed?
+    sub = Subscription.where(email: email).count > 0
+  end
+
   class << self
     
     def login_from_facebook(auth_hash)
