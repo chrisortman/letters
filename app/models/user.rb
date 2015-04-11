@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :stories
+
   def subscribed?
     sub = Subscription.where(email: email).count > 0
   end
