@@ -5,4 +5,8 @@ class HomeController < ApplicationController
     @letter_count = Letter.count
 
   end
+
+  def me
+
+  end
 end

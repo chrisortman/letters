@@ -1,0 +1,19 @@
+<p>
+<% if current_user.subscribed? %>
+  <%= current_user.email %>  is subscribed 
+<% else %>
+  <%= form_for Subscription.new(email: current_user.email) do |f| %>
+    <%= f.hidden_field :email %>
+    <button type="submit" class="btn btn-lg btn-success">Subscribe <%= current_user.email %></button>
+  <% end %>
+<% end %>
+
+</p>
+
+<ul>
+<% current_user.stories.each do |s| %>
+  <li><%= link_to s.title, s %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Add new story', new_story_path %>

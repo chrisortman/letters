@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/me'
+
   resources :subscriptions
 
   resources :stories
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/new'
   get 'home', to: 'home#index',  as: :home
+  get 'me', to: 'home#me',  as: :me
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
