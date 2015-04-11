@@ -37,8 +37,13 @@ class EmailProcessor
   end
 
   def create_new_story
-    Story.create(from: @email.from,
-                 title: @email.subject,
-                 text: @email.body)
+
+    story = Story.new(from: @email.from,
+              title: @email.subject,
+              text: @email.body)
+
+    user = User.from_email(@email.from)
+
+    story.user = user if user.present?
   end
 end

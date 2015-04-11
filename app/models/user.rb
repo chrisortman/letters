@@ -23,5 +23,9 @@ class User < ActiveRecord::Base
 
       user
     end
+
+    def from_email(email)
+      where(email: email).first
+    end
   end
 end
