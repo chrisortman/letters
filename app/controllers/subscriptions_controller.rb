@@ -1,4 +1,10 @@
 class SubscriptionsController < ApplicationController
+  before_filter :must_be_logged_in, :must_be_admin, :only => [:index]
+
+  def index
+    @subscriptions = Subscription.all
+  end
+
   def new
     @subscription = Subscription.new
   end

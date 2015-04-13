@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
     sub = Subscription.where(email: email).count > 0
   end
 
+  def admin?
+    email == 'chrisortman@gmail.com'
+  end
+
   class << self
     
     def login_from_facebook(auth_hash)

@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Created</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @subscriptions.each do |s| %>
+    <tr>
+      <td>
+        <%= s.email %>
+      </td>
+      <td>
+        <%= s.created_at %> 
+      </td>
+      <td>
+        <%= yes_no(s.user?) %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

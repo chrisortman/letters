@@ -7,9 +7,17 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def ensure_logged_in
-    if ! logged_in?
+  def must_be_logged_in
+    if ! logged_in? || current_user.nil?
       redirect_to login_url
+    end
+  end
+
+  def must_be_admin
+    if logged_in? && current_user.present?
+      if ! current_user.admin?
+        render :nothing, :status => 404
+      end
     end
   end
 
