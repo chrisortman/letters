@@ -11,7 +11,7 @@
   <div class="container">
     <div class="col-md-offset-8 col-md-4">
       <% if logged_in? %>
-        <%= current_user.name %> | <%= link_to "Sign Out", logout_url %>
+        <%= link_to current_user.name, me_url %> | <%= link_to "Sign Out", logout_url %>
       <% else %>
         <%= link_to "Sign In | Create Account", login_url %>
       <% end %>

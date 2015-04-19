@@ -16,4 +16,12 @@
 <% end %>
 </ul>
 
+<p>
 <%= link_to 'Add new story', new_story_path %>
+</p>
+
+<% if current_user.admin? %>
+  <p>
+  <%= link_to 'Prepare letter', stories_path %>
+  </p>
+<% end %>

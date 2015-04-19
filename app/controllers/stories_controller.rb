@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   before_action :must_be_logged_in
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy,:approve,:unapprove]
+  before_action :must_be_admin, only: [:approve,:unapprove]
 
   # GET /stories
   # GET /stories.json
@@ -61,6 +62,23 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stories_url, notice: 'Story was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def approve
+    @story.approved = true
+    @story.save!
+
+    respond_to do |format|
+      format.html { redirect_to @story, notice: 'Story approved' }
+    end
+  end
+
+  def unapprove
+    @story.approved = false
+    @story.save!
+    respond_to do |format|
+      format.html { redirect_to @story, notice: 'Story unapproved' }
     end
   end
 

@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   resources :subscriptions
 
-  resources :stories
+  resources :stories do
+		member do
+			post 'approve'
+			post 'unapprove'
+		end
+	end
 
   resources :letters
 

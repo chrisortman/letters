@@ -25,7 +25,7 @@ $(function() {
         // out the auth code from the signed request in the fbsr_XXX cookie
         $.getJSON('/auth/facebook/callback', function(json) {
           if(json === true) {
-            window.location = '<%= home_url %>';
+            window.location = '<%= me_url %>';
           }
         });
       }

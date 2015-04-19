@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>From:</strong>
-  <%= @story.from %>
-</p>
+<div class="page-header">
+  <h2><%= @story.title %> from <%= @story.from %></h2>
+</div>
+
+<%= markdown(@story.text) %>
+
+<hr>
 
 <p>
-  <strong>Text:</strong>
-  <%= @story.text %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @story.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @story.title %>
-</p>
-
+<% if @story.approved? %>
+  Story approved. <%= button_to "Unapprove", {action: 'unapprove'}, class: 'btn btn-danger' %>
+<% else %>
+  <%= button_to "Approve", {action: 'approve'}, class: 'btn btn-success' %>
+<% end %>
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
+</p>

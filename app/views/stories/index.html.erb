@@ -2,13 +2,13 @@
 
 <h1>Listing Stories</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>From</th>
-      <th>Text</th>
       <th>User</th>
       <th>Title</th>
+      <th>Text</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +17,9 @@
     <% @stories.each do |story| %>
       <tr>
         <td><%= story.from %></td>
-        <td><%= story.text %></td>
         <td><%= story.user_id %></td>
         <td><%= story.title %></td>
+        <td><%= story.text %></td>
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>

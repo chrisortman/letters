@@ -62,3 +62,4 @@ gem 'griddler'
 gem 'griddler-mandrill'
 gem 'medium-editor-rails', '~> 1.0.0'
 gem 'rails_12factor', group: :production
+gem 'redcarpet'
